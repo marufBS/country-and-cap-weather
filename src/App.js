@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { Box, Button, TextField, Typography } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SearchPage from './components/SearchPage';
+import CountryInfo from './components/CountryInfo';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<SearchPage />} />
+          <Route path="country/:name" element={<CountryInfo />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
